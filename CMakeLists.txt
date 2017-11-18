@@ -1,0 +1,24 @@
+cmake_minimum_required (VERSION 3.1.3) 
+project (console_canvas_package) 
+
+set (CMAKE_CXX_STANDARD 11)
+
+if("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" STREQUAL "")
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
+message(STATUS "${PROJECT_NAME} setting CMAKE_RUNTIME_OUTPUT_DIRECTORY to ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
+endif()
+
+if("${CMAKE_LIBRARY_OUTPUT_DIRECTORY}" STREQUAL "")
+set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
+message(STATUS "${PROJECT_NAME} setting CMAKE_LIBRARY_OUTPUT_DIRECTORY to ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
+endif()
+
+if("${BUILD_SHARED_LIBS}" STREQUAL "")
+set (BUILD_SHARED_LIBS true)
+message(STATUS "${PROJECT_NAME} setting BUILD_SHARED_LIBS to true")
+endif()
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+add_subdirectory(src)
+add_subdirectory(examples)
