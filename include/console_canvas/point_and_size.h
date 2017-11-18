@@ -9,7 +9,7 @@ namespace ctm
 CTM_DEF_PROP_CLASS(WithX, int, int, x, setX)
 CTM_DEF_PROP_CLASS(WithY, int, int, y, setY)
 
-class Point : public WithX, public WithY
+class CONSOLE_CANVAS_API Point : public WithX, public WithY
 {
 public:
     Point() {}
@@ -29,7 +29,7 @@ CTM_DEF_PROP_CLASS(WithHeight, int, int, height, setHeight)
 
 
 
-class Size : public WithWidth, public WithHeight
+class CONSOLE_CANVAS_API Size : public WithWidth, public WithHeight
 {
 public:
     Size() {}

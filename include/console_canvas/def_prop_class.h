@@ -7,6 +7,7 @@
 #define _INFRA_DEF_PROP_CLASS_H_AB0B81B0_CF3E_424f_9766_BA04D388199F_
 
 #include "./cxx_observers.h"
+#include "console_canvas/defs.h"
 
 namespace ctm {
 namespace def_prop_class_util {
@@ -40,7 +41,7 @@ struct function_traits<R(C::*)(Args...) const> {
 /// - Inherit the class by a class that needs the corresponding property.
 /// \sa CTM_DECL_SIMPLE_CLASS_FIELD, CTM_DEF_NOTIFIED_PROP_CLASS, CTM_DEF_PROP_REF_CLASS.
 #define CTM_DEF_PROP_CLASS(ClassName, PropType, PassedPropType, propGetter, propSetter) \
-    class ClassName { \
+    class CONSOLE_CANVAS_API ClassName { \
     public: \
         explicit ClassName(PassedPropType value) : m_value(value) {} \
         ClassName() : m_value() {} \
@@ -99,7 +100,7 @@ struct function_traits<R(C::*)(Args...) const> {
 /// \endcode
 /// \sa CTM_DECL_SIMPLE_CLASS_FIELD, CTM_DEF_PROP_CLASS, CTM_DEF_PROP_REF_CLASS.
 #define CTM_DEF_NOTIFIED_PROP_CLASS(ClassName, PropType, PassedPropType, propGetter, propSetter, addOnChangeObserver, removeOnChangeObserver) \
-    class ClassName { \
+    class CONSOLE_CANVAS_API ClassName { \
     public: \
         explicit ClassName(PassedPropType value) : m_value(value) {} \
         ClassName() : m_value() {} \
@@ -147,7 +148,7 @@ struct function_traits<R(C::*)(Args...) const> {
 /// - Inherit the class by a class that needs the corresponding property.
 /// \sa CTM_DECL_SIMPLE_CLASS_FIELD, CTM_DEF_PROP_CLASS, CTM_DEF_NOTIFIED_PROP_CLASS.
 #define CTM_DEF_PROP_REF_CLASS(ClassName, PropType, propRefAccessor, constPropRefAccessor) \
-    class ClassName { \
+    class CONSOLE_CANVAS_API ClassName { \
     public: \
         ClassName() : m_value() {} \
         explicit ClassName(const PropType& value) : m_value(value) {} \

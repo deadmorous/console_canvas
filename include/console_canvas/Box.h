@@ -6,7 +6,7 @@
 namespace ctm
 {
 
-class Box : public WithOrigin, public WithSize
+class CONSOLE_CANVAS_API Box : public WithOrigin, public WithSize
 {
 public:
     Box() {}

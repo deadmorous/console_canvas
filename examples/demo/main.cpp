@@ -6,6 +6,8 @@ using namespace std;
 
 int main()
 {
+    // TODO
+
     using namespace ctm;
     Box b;
     b << Point(1,2) << Point(10,5);
