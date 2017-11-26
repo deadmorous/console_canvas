@@ -3,7 +3,16 @@
 namespace ctm {
 namespace shapes {
 
-// TODO AS
+void Rectangle::paint(Canvas&) const
+{
+    ASSERT(false); // TODO AS
+}
+
+Box Rectangle::boundingBox() const
+{
+    ASSERT(false); // TODO AS
+    return Box();
+}
 
 } // namespace shapes
 } // namespace ctm

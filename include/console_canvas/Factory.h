@@ -31,6 +31,7 @@ public:
                        const typename Registry::value_type& v) -> TypeId {
             return v.first;
         });
+        return result;
     }
 
     static void registerType(TypeId typeId, Generator generator)

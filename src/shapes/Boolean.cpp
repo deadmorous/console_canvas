@@ -3,7 +3,16 @@
 namespace ctm {
 namespace shapes {
 
-// TODO AN
+void Boolean::paint(Canvas&) const
+{
+    ASSERT(false); // TODO AN
+}
+
+Box Boolean::boundingBox() const
+{
+    ASSERT(false); // TODO AN
+    return Box();
+}
 
 } // namespace shapes
 } // namespace ctm

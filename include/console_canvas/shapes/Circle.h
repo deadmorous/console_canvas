@@ -12,6 +12,11 @@ class CONSOLE_CANVAS_API Circle :
     public Shape,
     public FactoryMixin< Circle, Shape >
 {
+public:
+    void paint(Canvas&) const override;
+    Box boundingBox() const override;
+    void write(std::ostream& s) const override;
+    void read(std::istream& s) override;
 };
 
 } // namespace shapes

@@ -12,6 +12,11 @@ class CONSOLE_CANVAS_API Boolean :
     public Shape,
     public FactoryMixin< Boolean, Shape >
 {
+public:
+    void paint(Canvas&) const override;
+    Box boundingBox() const override;
+    void write(std::ostream& s) const override;
+    void read(std::istream& s) override;
 };
 
 } // namespace shapes

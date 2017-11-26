@@ -8,10 +8,15 @@ namespace shapes {
 
 // TODO AS
 
-class CONSOLE_CANVAS_API Boolean :
+class CONSOLE_CANVAS_API Triangle :
     public Shape,
-    public FactoryMixin< Boolean, Shape >
+    public FactoryMixin< Triangle, Shape >
 {
+public:
+    void paint(Canvas&) const override;
+    Box boundingBox() const override;
+    void write(std::ostream& s) const override;
+    void read(std::istream& s) override;
 };
 
 } // namespace shapes

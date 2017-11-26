@@ -3,7 +3,16 @@
 namespace ctm {
 namespace shapes {
 
-// TODO LP
+void Circle::paint(Canvas&) const
+{
+    ASSERT(false); // TODO LP
+}
+
+Box Circle::boundingBox() const
+{
+    ASSERT(false); // TODO LP
+    return Box();
+}
 
 } // namespace shapes
 } // namespace ctm
