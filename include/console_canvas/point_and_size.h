@@ -14,6 +14,12 @@ class CONSOLE_CANVAS_API Point : public WithX, public WithY
 public:
     Point() {}
     Point(int x, int y) : WithX(x), WithY(y) {}
+    bool operator==(const Point& that) const {
+        return x() == that.x() && y() == that.y();
+    }
+    bool operator!=(const Point& that) const {
+        return !(*this == that);
+    }
 };
 
 template< class S >
@@ -34,6 +40,12 @@ class CONSOLE_CANVAS_API Size : public WithWidth, public WithHeight
 public:
     Size() {}
     Size(int width, int height) : WithWidth(width), WithHeight(height) {}
+    bool operator==(const Size& that) const {
+        return width() == that.width() && height() == that.height();
+    }
+    bool operator!=(const Size& that) const {
+        return !(*this == that);
+    }
 };
 
 template< class S >

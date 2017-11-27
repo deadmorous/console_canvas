@@ -64,6 +64,13 @@ public:
         setSize(s);
     }
 
+    bool operator==(const Box& that) const {
+        return origin() == that.origin() && size() == that.size();
+    }
+    bool operator!=(const Box& that) const {
+        return !(*this == that);
+    }
+
 private:
     static bool inRange(int x, int origin, int size) {
         return x >= origin && x < origin + size;
