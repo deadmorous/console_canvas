@@ -7,6 +7,7 @@
 #include <functional>
 #include <map>
 #include <algorithm>
+#include "cxx_assert.h"
 
 // TODO
 
@@ -36,6 +37,7 @@ public:
 
     static void registerType(TypeId typeId, Generator generator)
     {
+        ASSERT(registry().find(typeId) == registry().end());
         registry()[typeId] = generator;
     }
 

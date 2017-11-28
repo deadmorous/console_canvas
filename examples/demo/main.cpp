@@ -2,6 +2,7 @@
 
 #include "console_canvas/Box.h"
 #include "console_canvas/Shape.h"
+#include "console_canvas/shapes/Circle.h"
 
 using namespace std;
 using namespace ctm;
@@ -24,16 +25,26 @@ CTM_REGISTER_TYPE(Kaka, "kaka")
 
 int main()
 {
-    // TODO
+    try {
+        // Kaka::Registrator KakaRegistrator("kaka");
+        // TODO
 
-    using namespace ctm;
-    Box b;
-    b << Point(1,2) << Point(10,5);
+        using namespace ctm;
+        Box b;
+        b << Point(1,2) << Point(10,5);
 
-    auto x = Shape::newInstance("kaka");
+        auto x = Shape::newInstance("kaka");
 
-    cout << b << endl;
-    cout << "Hello World!" << endl;
-    return 0;
+        auto c = std::make_shared<shapes::Circle>();
+        c->read(cin);
+
+        cout << b << endl;
+        cout << "Hello World!" << endl;
+        return 0;
+    }
+    catch(const std::exception& e) {
+        cerr << "ERROR: " << e.what() << endl;
+        return 1;
+    }
 }
 
