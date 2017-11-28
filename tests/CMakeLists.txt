@@ -15,3 +15,7 @@ target_link_libraries (${PROJECT_NAME} console_canvas)
 set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY
   COMPILE_DEFINITIONS $<$<CONFIG:Debug>:_DEBUG>
 )
+
+if (UNIX)
+    target_link_libraries (${PROJECT_NAME} pthread)
+endif()
