@@ -11,8 +11,8 @@ namespace ctm {
 class exception : public std::exception
 {
 public:
-    explicit exception(const std::string& s) noexcept : m_what(s) {}
-    const char* what() const noexcept override {
+    explicit exception(const std::string& s) throw() : m_what(s) {}
+    const char* what() const throw() override {
         return m_what.c_str();
     }
 private:
