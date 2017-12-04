@@ -4,6 +4,8 @@
 #include "console_canvas/Box.h"
 #include "console_canvas/Color.h"
 
+#include <vector>
+
 namespace ctm {
 
 // TODO KB
@@ -11,9 +13,11 @@ namespace ctm {
 class Canvas :
     public WithSize
 {
+private:
+    std::vector<char> matrix_color;
 public:
-    Canvas() : WithSize(Size(79, 23)) {}
-    explicit Canvas(const Size& size) : WithSize(size) {}
+    Canvas();
+    explicit Canvas(const Size& size);
     void clear(Color color = ' ');
     Color pixel(const Point& p) const;
     void setPixel(const Point& p, Color color);
