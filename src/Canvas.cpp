@@ -8,7 +8,8 @@ Canvas::Canvas()
     : WithSize(Size(79, 23))
 {
     // Резервируем память для всех пикселей холста
-    matrix_color.resize(this->size().height() * this->size().width());
+    matrix_color.resize(size().height() * size().width());
+    clear();
 }
 
 Canvas::Canvas(const Size& size)
@@ -16,23 +17,27 @@ Canvas::Canvas(const Size& size)
 {
     // Резервируем память для всех пикселей холста
     matrix_color.resize(size.height() * size.width());
+    clear();
 }
 
 void Canvas::clear(Color color)
 {
     // Перебираем все пиксели холста и меняем их цвет на тот, который был передан в функции
-    for (char & point_color : matrix_color)
-        point_color = color;
+    std::fill(matrix_color.begin(), matrix_color.end(), color);
 }
 
 Color Canvas::pixel(const Point& p) const
 {
-    return matrix_color[(p.x() - 1) * this->size().width() + p.y()];
+    if (p.x() < size().width() && p.y() < size().height())
+        return matrix_color[p.x()*size().width() + p.y()];
+    else
+        return '-';
 }
 
 void Canvas::setPixel(const Point& p, Color color)
 {
-    matrix_color[(p.x() - 1) * this->size().width() + p.y()] = color;
+    if (p.x() < size().width() && p.y() < size().height())
+        matrix_color[p.x()*size().width() + p.y()] = color;
 }
 
 } // namespace ctm
