@@ -5,7 +5,7 @@ using namespace ctm;
 
 namespace {
 
-TEST(CanvasTest, Constructors)
+TEST(CanvasTest, ConstructorsTest)
 {
     // Констркутор по умолчанию
     Canvas defaultConstructedCanvas;
@@ -18,21 +18,31 @@ TEST(CanvasTest, Constructors)
     size = canvas.size();
     EXPECT_EQ(size.width(), 56);
     EXPECT_EQ(size.height(), 78);
+}
 
-    // Установить пиксель
-    Color pclr = 'r';
-    canvas.setPixel(Point(2, 3), pclr);
-    EXPECT_EQ(canvas.pixel(Point(2, 3)), pclr);
+TEST(CanvasTest, pixelTest)
+{
+	Canvas canvas(Size(56, 78)); 
+	canvas.clear(); // Очищаем канвас, цвет всех пикселей == ' '
+	Color pclr = canvas.pixel(Point(2, 3)); // Поулчаем цвет случайной точки
+	EXPECT_EQ(pclr, ' '); // Сравниваем
+}
 
-    // Вернуть цвет пикселя
-    pclr = canvas.pixel(Point(2, 3));
-    EXPECT_EQ(pclr, ' ');
+TEST(CanvasTest, setPixelTest)
+{
+	Canvas canvas(Size(56, 78));
+	Color pclr = 'r'; // Задаем красный цвет
+	canvas.setPixel(Point(2, 3), pclr); // Задаем пикселю карсный цвет
+	EXPECT_EQ(canvas.pixel(Point(2, 3)), pclr); // Получаем цвет пикселя и сравниваем его с исходным
+}
 
-    // Очистить
-    canvas.clear();
-    for (int i = 0; i < canvas.size().width(); i++)
-        for(int j = 0; j < canvas.size().height(); j++)
-            EXPECT_EQ(canvas.pixel(Point(i, j)), ' ');
+TEST(CanvasTest, clearTest)
+{
+	Canvas canvas(Size(56, 78));
+	canvas.clear();
+	for (int i = 0; i < canvas.size().width(); i++)
+		for (int j = 0; j < canvas.size().height(); j++)
+			EXPECT_EQ(canvas.pixel(Point(i, j)), ' ');
 }
 
 } // anonymous namespace
