@@ -5,6 +5,7 @@
 #include "console_canvas/Box.h"
 #include "console_canvas/Factory.h"
 #include "console_canvas/StrokeStyle.h"
+#include "console_canvas/FillStyle.h"
 
 namespace ctm {
 
@@ -12,6 +13,8 @@ class Canvas;
 
 class CONSOLE_CANVAS_API Shape :
     public Persistent,
+    public WithStrokeStyle,
+    public WithFillStyle,
     public Factory<Shape>
 {
 public:

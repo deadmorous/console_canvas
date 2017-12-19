@@ -19,6 +19,13 @@ public:
     virtual void strokePixel(Canvas& c, const Point& p, int distFromStart = 0) = 0;
 };
 
+CTM_DEF_PROP_CLASS(
+    WithStrokeStyle,
+    std::shared_ptr<StrokeStyle>,
+    std::shared_ptr<StrokeStyle>,
+    strokeStyle,
+    setStrokeStyle)
+
 } // namespace ctm
 
 #endif // STROKESTYLE_H
