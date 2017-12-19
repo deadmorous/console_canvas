@@ -13,6 +13,8 @@ class CONSOLE_CANVAS_API SimpleStrokeStyle :
     public WithWidth
 {
 public:
+    SimpleStrokeStyle();
+    explicit SimpleStrokeStyle(const Color& color, int width = 1);
     void strokePixel(Canvas& c, const Point& p, int distFromStart = 0) override;
     void write(std::ostream& s) const override;
     void read(std::istream& s) override;

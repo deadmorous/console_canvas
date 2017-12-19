@@ -12,6 +12,8 @@ class CONSOLE_CANVAS_API SimpleFillStyle :
     public WithColor
 {
 public:
+    SimpleFillStyle();
+    explicit SimpleFillStyle(const Color& color);
     void strokePixel(Canvas& c, const Point& p) override;
     void write(std::ostream& s) const override;
     void read(std::istream& s) override;

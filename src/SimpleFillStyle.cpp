@@ -3,6 +3,15 @@
 
 namespace ctm {
 
+SimpleFillStyle::SimpleFillStyle()
+{
+}
+
+SimpleFillStyle::SimpleFillStyle(const Color& color) :
+    WithColor(color)
+{
+}
+
 void SimpleFillStyle::strokePixel(Canvas& c, const Point& p)
 {
     c.setPixel(p, color());

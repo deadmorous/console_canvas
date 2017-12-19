@@ -3,6 +3,8 @@
 #include "console_canvas/Box.h"
 #include "console_canvas/Shape.h"
 #include "console_canvas/shapes/Circle.h"
+#include "console_canvas/SimpleFillStyle.h"
+#include "console_canvas/SimpleStrokeStyle.h"
 
 using namespace std;
 using namespace ctm;
@@ -34,6 +36,8 @@ int main()
         b << Point(1,2) << Point(10,5);
 
         auto x = Shape::newInstance("kaka");
+        x->setFillStyle(std::make_shared<SimpleFillStyle>('*'));
+        x->setStrokeStyle(std::make_shared<SimpleStrokeStyle>('*'));
 
         auto c = std::make_shared<shapes::Circle>();
         c->read(cin);

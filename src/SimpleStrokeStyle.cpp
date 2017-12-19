@@ -3,8 +3,19 @@
 
 namespace ctm {
 
+SimpleStrokeStyle::SimpleStrokeStyle()
+{
+}
+
+SimpleStrokeStyle::SimpleStrokeStyle(const Color& color, int width) :
+    WithColor(color),
+    WithWidth(width)
+{
+}
+
 void SimpleStrokeStyle::strokePixel(Canvas& c, const Point& p, int /*distFromStart*/)
 {
+    // TODO: Use width!
     c.setPixel(p, color());
 }
 
