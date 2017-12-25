@@ -9,7 +9,7 @@
 namespace ctm {
 
 class Canvas;
-
+class SimpleStrokeStyle;
 class CONSOLE_CANVAS_API StrokeStyle :
     public Factory<StrokeStyle>,
     public Persistent
@@ -17,6 +17,7 @@ class CONSOLE_CANVAS_API StrokeStyle :
 public:
     virtual ~StrokeStyle() {}
     virtual void strokePixel(Canvas& c, const Point& p, int distFromStart = 0) = 0;
+     SimpleStrokeStyle  *m_stokeStyleChild;
 };
 
 CTM_DEF_PROP_CLASS(

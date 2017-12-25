@@ -12,6 +12,11 @@ Canvas::Canvas()
     clear();
 }
 
+Canvas::~Canvas()
+{
+matrix_color.clear();
+}
+
 Canvas::Canvas(const Size& size)
     : WithSize(size)
 {
@@ -24,6 +29,7 @@ void Canvas::clear(Color color)
 {
     // Перебираем все пиксели холста и меняем их цвет на тот, который был передан в функции
     std::fill(matrix_color.begin(), matrix_color.end(), color);
+    m_backGround_color=color;
 }
 
 Color Canvas::pixel(const Point& p) const
@@ -38,6 +44,16 @@ void Canvas::setPixel(const Point& p, Color color)
 {
     if (p.x() < size().width() && p.y() < size().height())
         matrix_color[p.x()*size().width() + p.y()] = color;
+}
+
+Color Canvas::backGround_color() const
+{
+    return m_backGround_color;
+}
+
+std::vector<char> Canvas::Matrix_color()
+{
+   return  matrix_color;
 }
 
 } // namespace ctm

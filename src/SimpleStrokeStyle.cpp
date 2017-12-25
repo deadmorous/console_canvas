@@ -5,18 +5,24 @@ namespace ctm {
 
 SimpleStrokeStyle::SimpleStrokeStyle()
 {
+        this->m_stokeStyleChild=this;//dirty
 }
 
 SimpleStrokeStyle::SimpleStrokeStyle(const Color& color, int width) :
     WithColor(color),
     WithWidth(width)
 {
+    this->m_stokeStyleChild=this;//dirty
 }
 
-void SimpleStrokeStyle::strokePixel(Canvas& c, const Point& p, int /*distFromStart*/)
+void SimpleStrokeStyle::strokePixel(Canvas& c, const Point& p, int  distFromStart )
 {
     // TODO: Use width!
-    c.setPixel(p, color());
+
+  for(int i=distFromStart;i<c.size().width();++i)
+    {
+    c.setPixel(Point(p.x()+i,p.y()), color());
+    }
 }
 
 void SimpleStrokeStyle::write(std::ostream& s) const

@@ -12,15 +12,18 @@ namespace ctm {
 class Canvas;
 
 class CONSOLE_CANVAS_API Shape :
-    public Persistent,
-    public WithStrokeStyle,
-    public WithFillStyle,
-    public Factory<Shape>
+        public Persistent,
+        public WithStrokeStyle,
+        public WithFillStyle,
+        public Factory<Shape>
 {
 public:
     virtual ~Shape() {}
     virtual void paint(Canvas&) const = 0;
     virtual Box boundingBox() const = 0;
+    bool filled=false;
+protected:
+
 };
 
 } // namespace ctm
