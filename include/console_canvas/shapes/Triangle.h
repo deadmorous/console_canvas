@@ -17,6 +17,10 @@ public:
     Box boundingBox() const override;
     void write(std::ostream& s) const override;
     void read(std::istream& s) override;
+
+    std::vector<ctm::Point> points;
+private:
+     void paintLine(ctm::Point p1,ctm::Point p2,Canvas& c)const;
 };
 
 } // namespace shapes
