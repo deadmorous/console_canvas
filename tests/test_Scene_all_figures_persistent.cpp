@@ -90,7 +90,7 @@ TEST(SceneTest, all_figures_persistent)
 
     saveStream.close(); //закрыть поток
     cout<<"load stream \n";
-    std::ifstream loadStream("save_polygon_circle.txt");
+    std::ifstream loadStream("save_all.txt");
     cout<<"next \n";
     MainScene.read(loadStream); //Чтение из файла(создание экземпляров классов по значениям из файла)
 
